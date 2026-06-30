@@ -18,8 +18,6 @@ npm test         # unit tests
 **Live URL:** https://ironpatriot06.github.io/WOBB_ASSIGNMENT/
 
 
-## What I Changed
-
 ### Bugs & quality fixes
 
 | Issue | Fix |
