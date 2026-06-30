@@ -17,40 +17,6 @@ npm test         # unit tests
 
 **Live URL:** https://ironpatriot06.github.io/WOBB_ASSIGNMENT/
 
-### Why the blank page happened
-
-GitHub Pages serves project sites from `https://<user>.github.io/<repo>/`, not the domain root. The deployed site was serving the raw `index.html` (with `/src/main.tsx`) instead of the **built** `dist/` output, so no JavaScript loaded.
-
-### How to deploy correctly
-
-1. In your repo go to **Settings → Pages → Build and deployment**
-2. Set **Source** to **GitHub Actions** (not "Deploy from a branch" with root files)
-3. Push to `main` — the workflow in `.github/workflows/deploy.yml` runs `npm run build:gh-pages` and deploys `dist/`
-4. Wait 1–2 minutes, then open https://ironpatriot06.github.io/WOBB_ASSIGNMENT/
-
-### Manual deploy (alternative)
-
-```bash
-npm run build:gh-pages
-# Upload the contents of dist/ (not the whole repo) to your gh-pages branch
-```
-
-Do **not** upload source files or the root `index.html` — only the built `dist/` folder.
-
----
-
-## Before Submitting
-
-Please ensure:
-
-- ✅ `npm run build` completes successfully
-- ✅ The application runs without errors (`npm run dev`)
-- ✅ Your repository is public (or we have access)
-- ✅ This README describes what changed, libraries added, assumptions, trade-offs, and remaining improvements
-- ✅ Your Git history contains meaningful commits
-- ✅ You submit your GitHub repository URL before the deadline (**2 July 2026, 2:00 PM IST**)
-
----
 
 ## What I Changed
 
@@ -168,7 +134,6 @@ Existing stack retained: React 19, TypeScript, Vite, Tailwind CSS v4, react-rout
 
 If I had more time, I would:
 
-- **Deploy** the app to Vercel/Netlify and add a live demo URL
 - Add **toast notifications** when profiles are added/removed
 - Add **E2E tests** (Playwright/Cypress) for the full add-to-list flow
 - Implement **virtualized list** rendering if the shortlist grows very large
