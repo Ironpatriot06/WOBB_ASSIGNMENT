@@ -3,8 +3,12 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vitest/config";
 
+const repoName = "WOBB_ASSIGNMENT";
+
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
+  // GitHub Pages project sites: https://<user>.github.io/<repo>/
+  base: mode === "gh-pages" ? `/${repoName}/` : "/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
@@ -16,4 +20,4 @@ export default defineConfig({
     globals: true,
     setupFiles: "./src/test/setup.ts",
   },
-});
+}));

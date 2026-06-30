@@ -7,10 +7,35 @@ Influencer search app built with React, TypeScript, Vite, Tailwind CSS, and Zust
 ```bash
 npm install
 npm run dev      # http://localhost:5173
-npm run build    # production build
+npm run build    # production build (local / Vercel / Netlify)
+npm run build:gh-pages  # production build for GitHub Pages
 npm run lint     # ESLint
 npm test         # unit tests
 ```
+
+## GitHub Pages Deployment
+
+**Live URL:** https://ironpatriot06.github.io/WOBB_ASSIGNMENT/
+
+### Why the blank page happened
+
+GitHub Pages serves project sites from `https://<user>.github.io/<repo>/`, not the domain root. The deployed site was serving the raw `index.html` (with `/src/main.tsx`) instead of the **built** `dist/` output, so no JavaScript loaded.
+
+### How to deploy correctly
+
+1. In your repo go to **Settings → Pages → Build and deployment**
+2. Set **Source** to **GitHub Actions** (not "Deploy from a branch" with root files)
+3. Push to `main` — the workflow in `.github/workflows/deploy.yml` runs `npm run build:gh-pages` and deploys `dist/`
+4. Wait 1–2 minutes, then open https://ironpatriot06.github.io/WOBB_ASSIGNMENT/
+
+### Manual deploy (alternative)
+
+```bash
+npm run build:gh-pages
+# Upload the contents of dist/ (not the whole repo) to your gh-pages branch
+```
+
+Do **not** upload source files or the root `index.html` — only the built `dist/` folder.
 
 ---
 
