@@ -45,3 +45,13 @@ export interface ProfileDetailResponse {
     user_profile: FullUserProfile;
   };
 }
+
+export interface SavedProfile {
+  user_id: string;
+  username: string;
+  fullname: string;
+  picture: string;
+  followers: number;
+  platform: Platform;
+  is_verified: boolean;
+}
